@@ -9,7 +9,9 @@ import astropy.units as u
 
 print("running...")
 
+# pull data from cleaned csv
 stars = read_csv("cleaned_stars.csv")
+# get a list of the ra and dec values
 ra = stars["ra"]
 dec = stars["dec"]
 # convert parallax milliarcseconds into parsecs (inverse relationship)
@@ -21,13 +23,17 @@ ra_shifted = (ra + 180) % 360 - 180
 ra_radians = np.radians(ra_shifted)
 dec_radians = np.radians(dec)
 
+# create plot window
 fig = plt.figure(figsize=(14, 7))
+# create mollweide chart 
 ax = fig.add_subplot(111, projection="mollweide")
+# plot stars by distance, ra, and dec from the perspective of the earth
 scatter = ax.scatter(ra_radians, dec_radians, c=distance, cmap="viridis", 
                     norm=LogNorm(vmin=distance.min(), vmax=distance.max()),
-                    s=1, alpha=0.5)
+                    s=0.5, alpha=0.5)
 ax.set_position([0.04, 0.12, 0.80, 0.80])
 
+# create a bar showing how many parsecs away each color represents
 cbar_ax = fig.add_axes([0.90, 0.15, 0.025, 0.70])
 cbar = fig.colorbar(scatter, cax=cbar_ax)
 cbar.set_label("Distance (parsecs)", color="white")
