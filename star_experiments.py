@@ -88,6 +88,38 @@ def distance_histogram(dist):
     plt.tight_layout()
     plt.show()
 
+def three_d_model(ra, dec, dist):
+    # convert spherical coordinates into 3d cartesian coordinates
+    # because we can't plot degrees (dec/ra)
+    x = dist * np.cos(dec) * np.cos(ra)
+    y = dist * np.cos(dec) * np.sin(ra)
+    z = dist * np.sin(dec)
+
+    fig = plt.figure(figsize=(12, 9))
+    ax = fig.add_subplot(111, projection="3d")
+    scatter = ax.scatter(x, y, z, c=dist, cmap="viridis", 
+                         norm=LogNorm(vmin=dist.min(), vmax=dist.max()), 
+                         s=3, alpha=0.7)
+    ax.set_xlabel("X (parsecs)")
+    ax.set_ylabel("Y (parsecs)")
+    ax.set_zlabel("Z (parsecs)")
+    ax.set_title("3D Map of Stars")
+
+    fig.patch.set_facecolor("white")
+    ax.set_facecolor("white")
+    ax.tick_params(colors="black", labelsize=8)
+    ax.xaxis.label.set_color("white")
+    ax.yaxis.label.set_color("white")
+    ax.zaxis.label.set_color("white")
+    ax.title.set_color("white")
+
+    # make 3 axes, equal visual scaling
+    ax.set_box_aspect((1, 1, 1))
+
+    plt.tight_layout()
+    plt.show()
+
+
 
 # pull data from cleaned csv
 stars = read_csv("cleaned_stars.csv")
@@ -97,9 +129,9 @@ dec = stars["dec"]
 # convert parallax milliarcseconds into parsecs (inverse relationship)
 distance = 1000/stars["parallax"]
 
-# turn ra range into -180 to 180 for mollweide graph
+# turn ra range into -180 to 180 
 ra_shifted = (ra + 180) % 360 - 180
-# degrees to radians for mollweide projections
+# degrees to radians 
 ra_radians = np.radians(ra_shifted)
 dec_radians = np.radians(dec)
 
@@ -117,5 +149,9 @@ while True:
         break
     elif graph_choice == "b":
         distance_histogram(dist=distance)
+        break
+    elif graph_choice == "c":
+        three_d_model(ra_radians, dec_radians, distance)
+        break
     else:
         print("Please enter one of the letters provided!")
