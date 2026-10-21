@@ -4,6 +4,7 @@ from io import StringIO
 
 print("running... ")
 url = "https://gea.esac.esa.int/tap-server/tap/sync"
+'''
 query = """
 SELECT TOP 200000
     source_id, 
@@ -32,6 +33,33 @@ WHERE random_index BETWEEN 0 AND 10000000
         classprob_dsc_combmod_star >= 0.8
     )
     ORDER BY random_index
+"""
+'''
+
+
+query = """
+SELECT TOP 200000
+    source_id,
+    ra,
+    dec,
+    parallax,
+    phot_g_mean_mag,
+    phot_bp_mean_mag,
+    phot_rp_mean_mag,
+    teff_gspphot,
+    pmra,
+    pmdec,
+    classprob_dsc_combmod_star
+FROM gaiadr3.gaia_source
+WHERE random_index BETWEEN 0 AND 10000000
+    AND parallax > 0
+    AND ra IS NOT NULL
+    AND dec IS NOT NULL
+    AND phot_g_mean_mag IS NOT NULL
+    AND phot_bp_mean_mag IS NOT NULL
+    AND phot_rp_mean_mag IS NOT NULL
+    AND teff_gspphot IS NOT NULL
+ORDER BY random_index
 """
 
 response = requests.get(
