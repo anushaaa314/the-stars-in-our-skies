@@ -12,8 +12,8 @@ def mollweide(ra, dec, dist):
     # create mollweide chart 
     ax = fig.add_subplot(111, projection="mollweide")
     # plot stars by distance, ra, and dec from the perspective of the earth
-    scatter = ax.scatter(ra_radians, dec_radians, c=distance, cmap="viridis", 
-                        norm=LogNorm(vmin=distance.min(), vmax=distance.max()),
+    scatter = ax.scatter(ra, dec, c=dist, cmap="viridis", 
+                        norm=LogNorm(vmin=dist.min(), vmax=dist.max()),
                         s=1, alpha=0.5)
     ax.set_position([0.04, 0.12, 0.80, 0.80])
 
@@ -61,6 +61,33 @@ def mollweide(ra, dec, dist):
     
     plt.show()
 
+def distance_histogram(dist):
+    # logarithmically separate distance into 50 bins
+    bins = np.logspace(
+        np.log10(dist.min()),
+        np.log10(dist.max()), 
+        50
+    )
+
+    fig = plt.figure(figsize=(10, 6))
+    ax = fig.add_subplot(111)
+    ax.hist(dist, bins=bins, color="mediumpurple", edgecolor="white", alpha=0.85)
+    
+    ax.set_xscale("log")
+    ax.set_title("Distribution of Star Distances")
+    ax.set_xlabel("Distance (parsecs)")
+    ax.set_ylabel("Number of Stars")
+
+    ax.set_facecolor("black")
+    fig.patch.set_facecolor("black")
+    ax.tick_params(colors="white")
+    ax.xaxis.label.set_color("white")
+    ax.yaxis.label.set_color("white")
+    ax.title.set_color("white")
+
+    plt.tight_layout()
+    plt.show()
+
 
 # pull data from cleaned csv
 stars = read_csv("cleaned_stars.csv")
@@ -77,15 +104,18 @@ ra_radians = np.radians(ra_shifted)
 dec_radians = np.radians(dec)
 
 print("running...")
-print("Hello!")
-print("What kind of star chart would you like to see")
-print("a) a mollweide projection (an equal-area map that preserves accurate proportions of the " \
+print("\nHello!")
+print("What kind of star chart would you like to see?\n ")
+print("a)   A mollweide projection (an equal-area map that preserves accurate proportions of the " \
 "360 degree celestial sphere around us) that 1. plots the directional location of the stars around us using right " \
-"acension and declination (a space coordinate system) and 2. color codes their distance from earth")
+"acension and declination (a space coordinate system) and 2. color codes their distance from earth.")
+print("b)   A histogram that shows how many stars are in different logarithmic distance groups")
 while True: 
-    graph_choice = input("a, b, c, or d?:  ")
+    graph_choice = input("\na, b, c, or d?:  ")
     if graph_choice == "a":
         mollweide(ra=ra_radians, dec=dec_radians, dist=distance)
         break
+    elif graph_choice == "b":
+        distance_histogram(dist=distance)
     else:
         print("Please enter one of the letters provided!")

@@ -5,7 +5,7 @@ from io import StringIO
 print("running... ")
 url = "https://gea.esac.esa.int/tap-server/tap/sync"
 query = """
-SELECT TOP 20000
+SELECT TOP 200000
     source_id, 
     ra, 
     dec, 
