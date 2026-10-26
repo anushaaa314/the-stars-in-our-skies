@@ -42,8 +42,7 @@ PLOTS = {
         "function": main.speed,
         "explanation": """
         The speeds graphed are derived from the proper motion of these stars. 
-        Proper motion describes how a star appers to move across the sky over time. It is measured in milliarcseconds/year.
-        The Gaia Dr3 dataset meausres this motion in two directions: 
+        Proper motion describes how a star appers to move across the sky over time. It is measured in milliarcseconds/year. The Gaia Dr3 dataset meausres this motion in two directions: 
             - pmra: motion along the right ascension direction, adjusted by
         the cosine of the declination.
             - pmdec: motion along the declination direction.
@@ -59,9 +58,7 @@ PLOTS = {
         "explanation": """
         -   This projection uses a BP - RP color index from the Gaia Dr3 catalog. Gaia has two photometers that measure light in different wavelength range. 
         A tool called a Blue Photometer measures the bluer part of a star's wavelength while a Red Photometer measures the red one. Each produces a brightness
-        measurement called magniture. The color
-        index is calculated by subtracting the RP magnitude from the BP
-        magnitude:
+        measurement called magniture. The color index is calculated by subtracting the RP magnitude from the BP magnitude:
         BP - RP = BP magnitude - RP magnitude
 
         - A lower, sometimes negative, value generally indicates a bluer star, while a higher value generally indicates a redder star. The index is
