@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ plot.title }} | Star Mapper</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container plot-page">
+        <a href="{{ url_for('home') }}">← Back to all maps</a>
+
+        <h1>{{ plot.title }}</h1>
+        <p>{{ plot.description }}</p>
+
+        <div class="plot-container">
+            <img
+                src="{{ url_for('plot_image', plot_name=plot_name) }}"
+                alt="{{ plot.title }} Mollweide star map"
+            >
+            <section class="explanation">
+                <p>{{ plot.explanation }}</p>
+            </section>
+        </div>
+
+        <nav class="plot-navigation">
+            {% for name, info in plots.items() %}
+                <a href="{{ url_for('show_plot', plot_name=name) }}">
+                    {{ info.title }}
+                </a>
+            {% endfor %}
+        </nav>
+    </main>
+</body>
+</html>

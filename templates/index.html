@@ -1,0 +1,48 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Stars In Our Skies</title>
+    <link rel="stylesheet"
+            href=""{{ url_for('static', filename='style.css') }}>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <main class="container">
+        <h1>This program will show you different kinds of Mollweide projection pertaining to stars in our celestial sphere!</h1>
+        <h3>What is a Mollweide projection?...</h3>
+        <p>
+            A Mollweide projection is an equal area map that can show spherical coordinates on a 2D plane while preserving accurate proportions.
+        </p>
+        <br>
+        <h3>What is the celestial sphere?...</h3>
+        <p>
+            The celestial sphere is an imaginary, infinitely large hollow globe surrounding us. The earth is assumed to be stationary at
+            the center of this sphere. When you look up at the might sky, you see half, or 180 degrees of the full celstial sphere.
+        </p>
+        <br>
+        <h3>How do we 'graph' stars onto this sphere?...</h3>
+        <p>
+            Every star in the celestial sphere has a right ascention and declination. They are similar to the latitude and longitude
+            coordinate system used on Earth. Right ascention (longitude) measures how east from the vernal equinox a star is. This dataset measures it
+            in degrees (0-360), but some also measure right ascention in seconds, minutes, and hours. Delcination (latitude) measures the angle of a stars north
+            or south direction. It is measured from -90 to 90, with a full -90 meaning the star is at the south celestial pole and vice versa.  
+        </p>
+
+
+        <section class="plot-grid">
+            {% for name, plot in plots.items() %}
+                <a class="plot-card"
+                   href="{{ url_for('show_plot', plot_name=name) }}">
+                    <h2>{{ plot.title }}</h2>
+                    <p>{{ plot.description }}</p>
+                    <span>Explore map →</span>
+                </a>
+            {% endfor %}
+        </section>
+
+
+    </main>
+</body>
+</html>

@@ -1,13 +1,18 @@
+import matplotlib
+matplotlib.use("Agg")
+
+from pathlib import Path
 from pandas import *
 import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm, LinearSegmentedColormap, Normalize
 import numpy as np 
 from astropy.coordinates import get_sun, ICRS
 from astropy.time import Time
-import astropy.units as u
+
+BASE_DIR = Path(__file__).resolve().parent
 
 # pull data from cleaned csv
-stars = read_csv("cleaned_stars.csv")
+stars = read_csv(BASE_DIR / "cleaned_stars.csv")
 
 # get a list of the ra and dec values
 ra = stars["ra"]
@@ -78,7 +83,8 @@ def distance(ra, dec):
     fig.text(0.5, 0.035, "Colors use a logarithmic scale", color="white", 
             fontsize=10, ha="center")
     
-    plt.show()
+    return fig
+
 
 def speed(ra, dec):
     pmra = stars["pmra"]
@@ -121,7 +127,7 @@ def speed(ra, dec):
     fig.text(0.5, 0.035, "Colors use a logarithmic scale", color="white", 
             fontsize=10, ha="center")
     
-    plt.show()
+    return fig
 
 def color(ra, dec):
     # calculate bp and rp color index
@@ -131,7 +137,6 @@ def color(ra, dec):
     print(color_index.max())
     print(color_index.min())
 
-    
     # make a custom colormap : blue, white, yellow, orange, red
     star_colors = LinearSegmentedColormap.from_list(
         "star_colors",
@@ -184,7 +189,8 @@ def color(ra, dec):
              color="white", fontsize="10", ha='center')
     fig.text(0.5, 0.035, "Color index calculated through bluemagnitude minus redmagnitude", color="white", 
             fontsize=10, ha="center")
-    plt.show()
+    
+    return fig
 
 
 def direction(ra, dec):
@@ -229,7 +235,8 @@ def direction(ra, dec):
     fig.text(0.5, 0.07, "Star colors correlate to what direction a star moves across the celestial sphere", 
              color="white", fontsize="10", ha='center')
     
-    plt.show()
+    return fig
+
 
 def temp(ra, dec):
     temp = stars["teff_gspphot"]
@@ -269,49 +276,4 @@ def temp(ra, dec):
     fig.text(0.5, 0.07, "Darker reds mean hotter temperatures", 
              color="white", fontsize="10", ha='center')
     
-    plt.show()
-
-print("running...")
-print("\nHello!")
-print("This program will show you different kinds of Mollweide projection pertaining to stars in our celestial sphere!\n")
-
-print("What is a Mollweide projection?...")
-print("A Mollweide projection is an equal area map that can show spherical coordinates on a 2D " \
-"plane while preserving accurate proportions.\n")
-
-print("What is the celestial sphere?...")
-print("The celestial sphere is an imaginary, infinitely large hollow globe surrounding us. " \
-"The earth is assumed to be stationary at the center of this sphere. When you look up at the might sky, you see half, " \
-"or 180 degrees of the full celstial sphere. \n\n")
-
-print("How do we 'graph' stars onto this sphere?...")
-print("Every star in the celestial sphere has a right ascention and declination. They are similar to the latitude and longitude" \
-"coordinate system used on Earth. Right ascention (longitude) measures how east from the vernal equinox a star is. This dataset measures it" \
-"in degrees (0-360), but some also measure right ascention in seconds, minutes, and hours. \nDelcination (latitude) measures the angle of a stars north" \
-"or south direction. It is measured from -90 to 90, with a full -90 meaning the star is at the south celestial pole and vice versa.  ")
-
-
-
-print("What kind of star quality would you like to see?\n ")
-print("a)   The distance of a star from the sun in parsecs.")
-print("b)   The speed of a star across our celstial sphere.")
-print("c)   The color of a star")
-print("d)   The direction a star moves across the celestial sphere. ")
-print("e)   The temperature of a star")
-while True: 
-    graph_choice = input("\na, b, c, d, or e?: :  ")
-    if graph_choice == "a":
-        distance(ra=ra_radians, dec=dec_radians)
-        break
-    elif graph_choice == "b":
-        speed(ra=ra_radians, dec=dec_radians)
-        break
-    elif graph_choice == "c":
-        color(ra=ra_radians, dec=dec_radians)
-        break
-    elif graph_choice == "d":
-        direction(ra=ra_radians, dec=dec_radians)
-    elif graph_choice == "e":
-        temp(ra=ra_radians, dec=dec_radians)
-    else:
-        print("Please enter one of the letters provided!")
+    return fig

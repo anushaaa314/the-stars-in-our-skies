@@ -1,0 +1,128 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #080b16;
+    color: #f1f4ff;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: min(900px, 92%);
+    margin: 80px auto;
+    text-align: left;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.15;
+}
+
+p {
+    color: #b8c1d9;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 22px;
+    border-radius: 8px;
+    background: #7c83ff;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button:hover {
+    background: #6269e8;
+}
+
+.plot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.plot-card {
+    display: block;
+    padding: 24px;
+    border: 1px solid #30384f;
+    border-radius: 14px;
+    background: #111729;
+    color: #f1f4ff;
+    text-decoration: none;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.plot-card:hover {
+    transform: translateY(-4px);
+    border-color: #7c83ff;
+}
+
+.plot-card h2 {
+    font-size: 1.3rem;
+}
+
+.plot-card p {
+    min-height: 48px;
+}
+
+.plot-card span {
+    color: #a9adff;
+    font-weight: bold;
+}
+
+.plot-page {
+    width: min(1200px, 94%);
+    margin-top: 35px;
+}
+
+.plot-container {
+    margin: 30px 0;
+    overflow-x: auto;
+    border: 1px solid #30384f;
+    border-radius: 12px;
+    background: black;
+}
+
+.plot-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.plot-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin: 25px 0;
+}
+
+.plot-navigation a {
+    color: #a9adff;
+}
+
+.explanation {
+    max-width: 900px;
+    margin: 32px 0;
+    padding: 24px;
+    text-align: left;
+    line-height: 1.8;
+    background: #17172b;
+    border: 1px solid #343450;
+    border-radius: 12px;
+}
+
+.explanation p {
+    text-align: left;
+    white-space: pre-line;
+    margin: 0;
+    color: #e0e0ed;
+}
