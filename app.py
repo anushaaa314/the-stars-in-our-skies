@@ -48,15 +48,15 @@ PLOTS = {
         the cosine of the declination.
             - pmdec: motion along the declination direction.
         Pmra and pmdec are perpendicular motion components. The overall angular speed is calculated using the Pythagorean theorm:
-        speed = sqrt(pmra² + pmdec²)
+        - speed = sqrt(pmra² + pmdec²)
         This only describes how fast a star's apparent motion is across the night sky, not its full 3D velocity through space. 
         """
     },
     "color": {
         "title": "Color of Stars",
-        "description": "Star color index calculated using BP - RP.",
+        "description": "Star color index ",
         "function": main.color,
-        "explanation": """"
+        "explanation": """
         -   This projection uses a BP - RP color index from the Gaia Dr3 catalog. Gaia has two photometers that measure light in different wavelength range. 
         A tool called a Blue Photometer measures the bluer part of a star's wavelength while a Red Photometer measures the red one. Each produces a brightness
         measurement called magniture. The color
@@ -79,8 +79,10 @@ PLOTS = {
             direction.
             - pmdec describes its apparent motion along the declination direction.
 
-        The direction angle is calculated from these two components using the arctangent function (atan2). This determines the angle of the motion vector while 
-        also accounting for which components are positive or negative.
+        The direction angle is calculated from these two components 
+        using the arctangent function (atan2). This determines the angle of 
+        the motion vector while also accounting for which components are 
+        positive or negative.
         The angle describes the direction the star appears to move across
         the sky. It does not, by itself at least , convey the star's full direction
         of travel through 3D space.
