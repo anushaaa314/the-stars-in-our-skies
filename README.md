@@ -30,7 +30,10 @@ Right Ascension and Declination
 
 This one kind of helped with Angular Speed 
 <img width="1486" height="850" alt="image" src="https://github.com/user-attachments/assets/161c1a23-70d7-40fd-8fcd-e7f168d6007a" />
+
+
 and so did this google search...
+
 "To calculate total angular speed (also called total proper motion, \(\mu \)) from the proper motion in right ascension (\(\mu _{\alpha }^{*}\) or pmra) and declination (\(\mu _{\delta }\) or pmdec), you use the Pythagorean theorem.
 \(\mu =\sqrt{\mu _{\alpha }^{*2}+\mu _{\delta }^{2}}\)
 
