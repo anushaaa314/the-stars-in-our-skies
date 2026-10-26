@@ -53,7 +53,7 @@ PLOTS = {
     },
     "color": {
         "title": "Color of Stars",
-        "description": "Star color index",
+        "description": "Stars color index.",
         "function": main.color,
         "explanation": """
         -   This projection uses a BP - RP color index from the Gaia DR3 catalog. Gaia has two photometers that measure light in different wavelength ranges. 
