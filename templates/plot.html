@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ plot.title }} | Star Mapper</title>
+    <title>{{ plot.title }} | The Stars in Our Skies</title>
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <div class="twinkling-stars" aria-hidden="true">
+        <span class="star star-2">✧</span>
+        <span class="star star-1">✦</span>
+        <span class="star star-3">·</span>
+        <span class="star star-4">✦</span>
+        <span class="star star-5">·</span>
+        <span class="star star-6">✧</span>
+        <span class="star star-7">·</span>
+        <span class="star star-8">✦</span>
+        <span class="star star-9">·</span>
+        <span class="star star-10">✧</span>
+    </div>
     <main class="container plot-page">
-        <a href="{{ url_for('home') }}">← Back to all maps</a>
+        <a href="{{ url_for('home') }}">← Back to All Maps</a>
 
         <h1>{{ plot.title }}</h1>
         <p>{{ plot.description }}</p>
@@ -17,7 +29,7 @@
         <div class="plot-container">
             <img
                 src="{{ url_for('plot_image', plot_name=plot_name) }}"
-                alt="{{ plot.title }} Mollweide star map"
+                alt="{{ plot.title }} Mollweide Star Map"
             >
             <section class="explanation">
                 <p>{{ plot.explanation }}</p>

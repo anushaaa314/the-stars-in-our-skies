@@ -126,3 +126,63 @@ p {
     margin: 0;
     color: #e0e0ed;
 }
+
+/* Keep the decorative stars behind the page content */
+.twinkling-stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* Individual stars */
+.twinkling-stars .star {
+    position: absolute;
+    color: #d8d2ff;
+    font-size: 14px;
+    opacity: 0.25;
+    animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+/* Star positions */
+.star-1  { top: 12%; left: 2%; animation-delay: 0s; }
+.star-2  { top: 28%; left: 5%; animation-delay: 1s; }
+.star-3  { top: 48%; left: 2%; animation-delay: 1.8s; }
+.star-4  { top: 72%; left: 4%; animation-delay: 0.6s; }
+.star-5  { top: 88%; left: 2%; animation-delay: 2s; }
+
+.star-6  { top: 15%; right: 3%; animation-delay: 1.3s; }
+.star-7  { top: 35%; right: 2%; animation-delay: 0.4s; }
+.star-8  { top: 57%; right: 4%; animation-delay: 2.2s; }
+.star-9  { top: 76%; right: 2%; animation-delay: 1.6s; }
+.star-10 { top: 92%; right: 5%; animation-delay: 0.8s; }
+
+/* Gentle blinking effect */
+@keyframes twinkle {
+    from {
+        opacity: 0.15;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Keep your actual content above the decorative stars */
+.plot-page,
+main,
+header,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .twinkling-stars .star {
+        animation: none;
+        opacity: 0.6;
+    }
+}

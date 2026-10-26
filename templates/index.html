@@ -6,34 +6,46 @@
     <title>The Stars In Our Skies</title>
     <link rel="stylesheet"
             href=""{{ url_for('static', filename='style.css') }}>
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href=static/style.css>
 </head>
 <body>
+    <div class="twinkling-stars" aria-hidden="true">
+        <span class="star star-1">✦</span>
+        <span class="star star-2">✧</span>
+        <span class="star star-3">·</span>
+        <span class="star star-4">✦</span>
+        <span class="star star-5">·</span>
+        <span class="star star-6">✧</span>
+        <span class="star star-7">·</span>
+        <span class="star star-8">✦</span>
+        <span class="star star-9">·</span>
+        <span class="star star-10">✧</span>
+    </div>
     <main class="container">
-        <h1>The Stars In Our Skies</h1>
-        <h4>This program will show you different kinds of Mollweide projection pertaining to stars in our celestial sphere!</h4>
+        <h1>The Stars in Our Skies</h1>
+        <h4>This project explores different Mollweide projections of stars in the celestial sphere!</h4>
         <br>
-        <h3>What is a Mollweide projection?...</h3>
+        <h3>What Is a Mollweide Projection?...</h3>
         <p>
             A Mollweide projection is an equal area map that can show spherical coordinates on a 2D plane while preserving accurate proportions.
         </p>
         <br>
-        <h3>What is the celestial sphere?...</h3>
+        <h3>What Is the Celestial Sphere?...</h3>
         <p>
             The celestial sphere is an imaginary, infinitely large hollow globe surrounding us. The earth is assumed to be stationary at
-            the center of this sphere. When you look up at the might sky, you see half, or 180 degrees of the full celstial sphere.
+            the center of this sphere. When you look up at the night sky, you see half, or 180 degrees of the full celstial sphere.
         </p>
         <br>
-        <h3>How do we 'graph' stars onto this sphere?...</h3>
+        <h3>How Do We Map Stars onto this Sphere?...</h3>
         <p>
-            Every star in the celestial sphere has a right ascention and declination. They are similar to the latitude and longitude
-            coordinate system used on Earth. Right ascention (longitude) measures how east from the vernal equinox a star is. This dataset measures it
-            in degrees (0-360), but some also measure right ascention in seconds, minutes, and hours. Delcination (latitude) measures the angle of a stars north
-            or south direction. It is measured from -90 to 90, with a full -90 meaning the star is at the south celestial pole and vice versa.  
+            Every star in the celestial sphere has a right ascension and declination. They are similar to the latitude and longitude
+            coordinate system used on Earth. Right ascension (longitude) measures how east from the vernal equinox a star is. This dataset measures it
+            in degrees (0-360), but right ascension is also expressed in seconds, minutes, and hours. Declination (latitude) measures the angle of a star's position 
+            north or south of the celestial equator. It is measured from -90 to 90, with a full -90 meaning the star is at the south celestial pole and vice versa.  
         </p>
         <h3>This project seems so cool! Where did you get the data from to do this?...</h3>
         <p>The dataset used in this project comes from the Gaia Data Release 3, a catalog that contains information about 1.8 billion objects in our universe 
-            observed by the European Space Agencie's Gaia satellite. However, I only downloaded a random sample of 50,000 stars for this project, but I hope 
+            observed by the European Space Agency's Gaia satellite. However, I only used a random sample of 50,000 stars for this project, but I hope 
             to harness the catalog's full potential in the near future!
         </p>
 

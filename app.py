@@ -25,13 +25,13 @@ PLOTS = {
         "description": "Estimated distance from Earth in parsecs.",
         "function": main.distance,
         "explanation": """
-        - A parsec is a unit of astronomical distance equal to about 3.26 light years and it is calculated using a star's parallax. Parallax is the 
-        apparent shift in a star's position as earth revolves around the sun (see picture below). The distance in parsecs is normally calculated by 
-        taking the reciprocal of the parallax (distance = 1/parallax), when parallax is measured in arcseconds. However, the Gaia Dr3 dataset 
+        - A parsec is a unit of astronomical distance equal to about 3.26 light-years and it is calculated using a star's parallax. Parallax is the 
+        apparent shift in a star's position as Earth revolves around the sun (see picture below). The distance in parsecs is normally calculated by 
+        taking the reciprocal of the parallax (distance = 1/parallax), when parallax is measured in arcseconds. However, the Gaia DR3 dataset 
         measures parallax in milliarcseconds, so the formula becomes distance = 1000/parallax. 
         - The colors use a logarithmic scale, so the stars may appear the same color. However, if you look closely, you can see various shades of blue 
         as well as many yellow outliers
-        - I would like to clarify that the earth is not near the sun at all in this projection. If you wrap this 2D projection back into it's 3D 360 degree 
+        - I would like to clarify that the Earth's location is not near the sun at all in this projection. If you wrap this 2D projection back into it's 3D, 360 degree 
         shape, the Earth will actually be in the center of, or inside, the sphere. We are the stationary observer watching the objects in the sphere move 
         around us. 
         """
@@ -42,23 +42,23 @@ PLOTS = {
         "function": main.speed,
         "explanation": """
         The speeds graphed are derived from the proper motion of these stars. 
-        Proper motion describes how a star appers to move across the sky over time. It is measured in milliarcseconds/year. The Gaia Dr3 dataset meausres this motion in two directions: 
+        Proper motion describes how a star appears to move across the sky over time. It is measured in milliarcseconds per year. The Gaia DR3 dataset meausres this motion in two directions: 
             - pmra: motion along the right ascension direction, adjusted by
         the cosine of the declination.
             - pmdec: motion along the declination direction.
-        Pmra and pmdec are perpendicular motion components. The overall angular speed is calculated using the Pythagorean theorm:
+        Pmra and pmdec are perpendicular motion components. The overall angular speed is calculated using the Pythagorean theorem:
         - speed = sqrt(pmra² + pmdec²)
         This only describes how fast a star's apparent motion is across the night sky, not its full 3D velocity through space. 
         """
     },
     "color": {
         "title": "Color of Stars",
-        "description": "Star color index ",
+        "description": "Star color index",
         "function": main.color,
         "explanation": """
-        -   This projection uses a BP - RP color index from the Gaia Dr3 catalog. Gaia has two photometers that measure light in different wavelength range. 
-        A tool called a Blue Photometer measures the bluer part of a star's wavelength while a Red Photometer measures the red one. Each produces a brightness
-        measurement called magniture. The color index is calculated by subtracting the RP magnitude from the BP magnitude:
+        -   This projection uses a BP - RP color index from the Gaia DR3 catalog. Gaia has two photometers that measure light in different wavelength ranges. 
+        A tool called a Blue Photometer measures the bluer part of a star's wavelength while a Red Photometer measures the redder part. Each produces a brightness
+        measurement called magnitude. The color index is calculated by subtracting the RP magnitude from the BP magnitude:
         BP - RP = BP magnitude - RP magnitude
 
         - A lower, sometimes negative, value generally indicates a bluer star, while a higher value generally indicates a redder star. The index is
@@ -71,18 +71,11 @@ PLOTS = {
         "description": "Direction of stellar proper motion.",
         "function": main.direction,
         "explanation": """
-        This chart uses the columns pmra and pmdec from the Gaia Dr3 dataset.
-            - pmra describes the star's apparent motion along the right ascension
-            direction.
-            - pmdec describes its apparent motion along the declination direction.
-
-        The direction angle is calculated from these two components 
-        using the arctangent function (atan2). This determines the angle of 
-        the motion vector while also accounting for which components are 
-        positive or negative.
-        The angle describes the direction the star appears to move across
-        the sky. It does not, by itself at least , convey the star's full direction
-        of travel through 3D space.
+        This chart uses the pmra and pmdec columns from the Gaia DR3 dataset.
+            - pmra: Describes a star's apparent motion along the right ascension direction.
+            - pmdec: Describes a star's apparent motion along the declination direction.
+        The direction angle is calculated from these two components using the atan2 function, which determines the angle of the motion vector while accounting for the signs of both components.
+        The angle describes the direction in which a star appears to move across the sky. It does not, on its own, describe the star's complete three-dimensional direction of travel through space.
 
         """
     },
@@ -91,9 +84,9 @@ PLOTS = {
         "description": "Estimated stellar effective temperature.",
         "function": main.temp,
         "explanation": """
-        The temperature shown is the estimatated effective temperature of each star
+        The temperatures shown are  estimates of each star's effective temperature.
         Effective temperature is the temperature a theoretical blackbody would need to have to emit the same total energy per unit surface
-        area as the star.
+        area as the star. It is measured in kelvins (K).
 
 
         """

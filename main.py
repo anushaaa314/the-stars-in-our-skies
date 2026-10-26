@@ -69,18 +69,18 @@ def distance(ra, dec):
     # gridlines
     ax.grid(True, color="gray", alpha=0.65)
 
-    ax.set_title("Molleweide map of the stars")
+    ax.set_title("Molleweide Map of the Stars")
     ax.tick_params(colors="lemonchiffon")
 
     # top text 
     fig.text(0.5, 0.96, "DISTANCE OF STARS", color="white", 
              fontsize="16", fontweight="bold", ha="center")
-    fig.text(0.5, 0.93, "Star positions mapped using right acension and declination",
+    fig.text(0.5, 0.93, "Star Positions Mapped Using Right Ascension and Declination",
               color="white", fontsize="10", ha="center")
     # bottom text 
-    fig.text(0.5, 0.07, "Star colors represent their estimated distance from Earth", 
+    fig.text(0.5, 0.07, "Star Colors Represent Estimated Distance from Earth", 
              color="white", fontsize="10", ha='center')
-    fig.text(0.5, 0.035, "Colors use a logarithmic scale", color="white", 
+    fig.text(0.5, 0.035, "Color Scale Is Logarithmic", color="white", 
             fontsize=10, ha="center")
     
     return fig
@@ -113,18 +113,18 @@ def speed(ra, dec):
     # gridlines
     ax.grid(True, color="gray", alpha=0.65)
 
-    ax.set_title("Molleweide map of the stars")
+    ax.set_title("Molleweide Map of the Stars")
     ax.tick_params(colors="lemonchiffon")
 
     # top text 
     fig.text(0.5, 0.96, "SPEED OF STARS", color="white", 
              fontsize="16", fontweight="bold", ha="center")
-    fig.text(0.5, 0.93, "Star positions mapped using right ascension and declination",
+    fig.text(0.5, 0.93, "Star Positions Mapped Using Right Ascension and Declination",
               color="white", fontsize="10", ha="center")
     # bottom text 
-    fig.text(0.5, 0.07, "Star colors represent how fast they move across the celestial sphere", 
+    fig.text(0.5, 0.07, "Colors Represent Angular Speed Across the Celestial Sphere", 
              color="white", fontsize="10", ha='center')
-    fig.text(0.5, 0.035, "Colors use a logarithmic scale", color="white", 
+    fig.text(0.5, 0.035, "Color Scale is Logarithmic", color="white", 
             fontsize=10, ha="center")
     
     return fig
@@ -176,18 +176,18 @@ def color(ra, dec):
     # gridlines
     ax.grid(True, color="gray", alpha=0.65)
 
-    ax.set_title("Molleweide map of the stars")
+    ax.set_title("Molleweide Map of the Stars")
     ax.tick_params(colors="lemonchiffon")
 
     # top text 
     fig.text(0.5, 0.96, "COLOR OF STARS", color="white", 
              fontsize="16", fontweight="bold", ha="center")
-    fig.text(0.5, 0.93, "Star positions mapped using right ascension and declination",
+    fig.text(0.5, 0.93, "Star Positions Mapped Using Right Ascension and Declination",
               color="white", fontsize="10", ha="center")
     # bottom text 
-    fig.text(0.5, 0.07, "Star colors are estimated from their blue vs red brightness to the Earth", 
+    fig.text(0.5, 0.07, "Colors Represent the Gaia BP − RP Color Index", 
              color="white", fontsize="10", ha='center')
-    fig.text(0.5, 0.035, "Color index calculated through bluemagnitude minus redmagnitude", color="white", 
+    fig.text(0.5, 0.035, "Color index calculated through blue magnitude minus red magnitude", color="white", 
             fontsize=10, ha="center")
     
     return fig
@@ -223,7 +223,7 @@ def direction(ra, dec):
     # gridlines
     ax.grid(True, color="gray", alpha=0.65)
 
-    ax.set_title("Molleweide map of the stars")
+    ax.set_title("Molleweide Map of the Stars")
     ax.tick_params(colors="lemonchiffon")
 
     # top text 
@@ -232,7 +232,7 @@ def direction(ra, dec):
     fig.text(0.5, 0.93, "Star positions mapped using right ascension and declination",
               color="white", fontsize="10", ha="center")
     # bottom text 
-    fig.text(0.5, 0.07, "Star colors correlate to what direction a star moves across the celestial sphere", 
+    fig.text(0.5, 0.07, "Colors Represent the Direction of Apparent Stellar Motion", 
              color="white", fontsize="10", ha='center')
     
     return fig
@@ -264,16 +264,16 @@ def temp(ra, dec):
     # gridlines
     ax.grid(True, color="gray", alpha=0.65)
 
-    ax.set_title("Molleweide map of the stars")
+    ax.set_title("Molleweide Map of the Stars")
     ax.tick_params(colors="lemonchiffon")
 
     # top text 
     fig.text(0.5, 0.96, "TEMPERATURE OF STARS", color="white", 
              fontsize="16", fontweight="bold", ha="center")
-    fig.text(0.5, 0.93, "Star positions mapped using right ascension and declination",
+    fig.text(0.5, 0.93, "Star Positions Mapped Using Right Ascension and Declination",
               color="white", fontsize="10", ha="center")
     # bottom text 
-    fig.text(0.5, 0.07, "Darker reds mean hotter temperatures", 
+    fig.text(0.5, 0.07, "Darker Red Shades Indicate Higher Temperatures", 
              color="white", fontsize="10", ha='center')
     
     return fig
