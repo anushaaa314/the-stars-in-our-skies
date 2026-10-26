@@ -29,24 +29,15 @@ def distance(ra, dec):
     # convert parallax milliarcseconds into parsecs (inverse relationship)
     parallax = stars["parallax"]
     dist = 1000/parallax
-    nearby_stars = dist <= 150
-    background_stars = dist > 150
+
     # create plot window
     fig = plt.figure(figsize=(14, 7))
     # create mollweide chart 
     ax = fig.add_subplot(111, projection="mollweide")
     # plot stars by distance, ra, and dec from the perspective of the earth
-    scatter = ax.scatter(ra[nearby_stars], dec[nearby_stars], c=dist[nearby_stars], cmap="viridis", 
+    scatter = ax.scatter(ra, dec, c=dist, cmap="viridis", 
                         norm=LogNorm(vmin=dist.min(), vmax=dist.max()),
                         s=1, alpha=0.5)
-    ax.scatter(ra[background_stars], dec[background_stars], color="gray", s=1,
-            alpha=0.5, label="Background stars (>150 parsecs)")
-    ax.legend(
-    loc="lower left",
-    facecolor="black",
-    labelcolor="white",
-    edgecolor="gray"
-    )
     ax.set_position([0.04, 0.12, 0.80, 0.80])
 
     # create a bar showing how many parsecs away each color represents
