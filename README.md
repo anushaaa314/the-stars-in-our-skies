@@ -50,11 +50,9 @@ Step-by-Step Calculation
 python
 import numpy as np
 
-# Example values (in milliarcseconds per year, mas/yr)
 pmra_corrected = -3.45  # Already includes the cos(dec) factor
 pmdec = 5.12
 
-# Calculate total angular speed
 total_proper_motion = np.sqrt(pmra_corrected**2 + pmdec**2)
 
 print(f"Total angular speed: {total_proper_motion:.3f} mas/yr")
